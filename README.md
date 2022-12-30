@@ -1,3 +1,5 @@
+# toytcp
+
 - [Rustで始めるTCP自作入門](https://techbookfest.org/product/6562563816947712?productVariantID=5842153718677504)
 
 ```sh
@@ -17,3 +19,8 @@ hello
 world
 world
 ```
+
+## Refs.
+
+- [teru01/toytcp](https://github.com/teru01/toytcp)
+- [s-ichikawa/rust-toytcp](https://github.com/s-ichikawa/rust-toytcp)
