@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  toytcp:
+    build:
+      context:  ./docker
+    environment:
+      CARGO_BUILD_TARGET_DIR: /tmp/target
+      CARGO_HOME: /tmp/.cargo
+    volumes:
+      - .:/app
+      - cargo_home:/tmp/.cargo
+      - cargo_target:/tmp/target
+    privileged: true
+
+volumes:
+  cargo_home:
+  cargo_target:

@@ -3,21 +3,25 @@
 - [Rustで始めるTCP自作入門](https://techbookfest.org/product/6562563816947712?productVariantID=5842153718677504)
 
 ```sh
-$ make build
-
-# Start /bin/bash
+# Start toytcp container
 $ make run
-
-# Change entry command with CMD
-$ make run CMD="cargo run --bin echoserver 127.0.0.1:50000"
+root@: cargo build --examples
+root@: ip netns exec host1 /tmp/target/debug/examples/echoserver 10.0.0.1 40000
+[toytcp/src/tcp.rs:95] "begin recv thread" = "begin recv thread"
+[toytcp/examples/echoserver.rs:16] "listening.." = "listening.."
+...
 ```
 
 ```sh
-$ make exec CMD="nc 127.0.0.1 50000"
-hello
-hello
-world
-world
+# Enter running container
+$ make exec
+root@ ip netns exec host1 /tmp/target/debug/examples/echoclient 10.0.0.1 40000
+...
+```
+
+```sh
+# cleanup
+$ make clean
 ```
 
 ## Refs.
